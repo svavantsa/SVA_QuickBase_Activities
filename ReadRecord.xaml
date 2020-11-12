@@ -1,0 +1,197 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ReadRecord" this:ReadRecord.qbDomain="builderprogram-savantsa" this:ReadRecord.qbAppTokenCredential="QB_Builder_AppTokenCredential" this:ReadRecord.qbUserTokenCredential="QB_Builder_SVATokenCredential" this:ReadRecord.qbDBID="bqfh8a7x" this:ReadRecord.clist="39" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:be="clr-namespace:BalaReva.Externals;assembly=BalaReva.Externals" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:SVA_SECURITY_Activities;assembly=SVA.SECURITY.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="qbDomain" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="qbAppTokenCredential" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="qbUserTokenCredential" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="qbDBID" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="errtext" Type="OutArgument(x:String)" />
+    <x:Property Name="query" Type="InArgument(x:String)" />
+    <x:Property Name="qid" Type="InArgument(x:String)" />
+    <x:Property Name="clist" Type="InArgument(x:String)" />
+    <x:Property Name="qname" Type="InArgument(x:String)" />
+    <x:Property Name="options" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="slist" Type="InArgument(x:String)" />
+    <x:Property Name="errdetail" Type="OutArgument(x:String)" />
+    <x:Property Name="ReturnedDT" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <this:ReadRecord.query>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:ReadRecord.query>
+  <this:ReadRecord.qid>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:ReadRecord.qid>
+  <this:ReadRecord.qname>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:ReadRecord.qname>
+  <this:ReadRecord.options>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:ReadRecord.options>
+  <this:ReadRecord.slist>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:ReadRecord.slist>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>802,1514.5</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AddRecord_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>SVA_SECURITY_Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>SVA.SECURITY.Activities_Expressions_48411444</AssemblyReference>
+      <AssemblyReference>SVA.SECURITY.Activities</AssemblyReference>
+      <AssemblyReference>SVA.SECURITY.Activities_Expressions_50571508</AssemblyReference>
+      <AssemblyReference>SVA.SECURITY.Activities_Expressions_3730396</AssemblyReference>
+      <AssemblyReference>SVA.SECURITY.Activities_Expressions_66845251</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This activity uses the API_GenResultsTable QuickBase API Call to download a .CSV file from the internet, reads it and returns a datatable with the results.&#xA;Input Parameters:&#xA;1.QuickBase Domain (the part between https: and .quickbase.com)&#xA;2.AppTokenCredential name for this to get the App Token from Orchestrator&#xA;3. UserTokenCredential name to get from the orchestrator of a user who has read access to the table mentioned in the dbid below:&#xA;4. DBID for the table from which you want to read data&#xA;5. query, qid or qname (any one) to determine the conditions of the rows  you want. THis is optional. If nothing is mentioned then all rows that the user can read will be returned.&#xA;6. clist. Columns List as a period delimited FID numbers. This is optional. If nothing is mentioned it will return all fields from the default report that the user has read access to.&#xA;7. slist: Sort List. (Optional) If not mentioned it will sort the data per the default sort order.&#xA;8. options: See QB Documentation. This activity will force a CSV option so it can download the .CSV file to read into a datatable to return.&#xA;Output. &#xA;1. ReturnedDT: A datatable that is created by reading the CSV file that is downloaded.&#xA;2. errtext: If the file is not downloaded due to some error, the error message is returned." DisplayName="ReadRecord (as API_GenResultsTable)" sap:VirtualizedContainerService.HintSize="526,1449.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="qbURL" />
+      <Variable x:TypeArguments="ss:SecureString" Name="qbAppToken" />
+      <Variable x:TypeArguments="ss:SecureString" Name="qbUserToken" />
+      <Variable x:TypeArguments="x:Boolean" Name="qbURLSuccess" />
+      <Variable x:TypeArguments="x:String" Name="cwd" />
+      <Variable x:TypeArguments="x:String" Default="Data\Results.csv" Name="fileName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[Lcase(options).Contains(&quot;csv&quot;)]" DisplayName="If (to force a csv in the options parameter" sap:VirtualizedContainerService.HintSize="484,210" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[options]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[options+".csv"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Compose qbURL" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[qbURL]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["https://" + qbDomain + ".quickbase.com"+ "/db/" + qbDBID]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <s:GetAppCredentials out_Username="{x:Null}" DisplayName="Private: Get AppToken Credential" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="GetAppCredentials_1" in_Credential="[qbAppTokenCredential]" out_Password="[qbAppToken]" />
+    <s:GetAppCredentials out_Username="{x:Null}" DisplayName="Private: Get UserToken Credential" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="GetAppCredentials_2" in_Credential="[qbUserTokenCredential]" out_Password="[qbUserToken]" />
+    <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="484,64" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[qbURL]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[qbURL+"?a=API_GenResultsTable"+
+"&amp;apptoken=" + New System.Net.NetworkCredential(String.Empty, qbAppToken).Password +
+"&amp;usertoken=" + New System.Net.NetworkCredential(String.Empty, qbUserToken).Password+
+"&amp;query="+query+
+"&amp;qid="+qid+
+"&amp;qname="+qname+
+"&amp;clist="+clist+
+"&amp;slist="+slist+
+"&amp;options="+options]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetEnvironmentVariable DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" VariableValue="[cwd]" />
+    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[cwd+"\" + fileName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <be:DownloadFile DisplayName="Download File" FilePath="[fileName]" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="DownloadFile_1" URL="[qbURL]" />
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[ReturnedDT]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[fileName]" sap:VirtualizedContainerService.HintSize="484,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadCsvFile>
+    <ui:Delete ContinueOnError="True" DisplayName="Delete results.csv if it exists" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[filename]" />
+  </Sequence>
+</Activity>
